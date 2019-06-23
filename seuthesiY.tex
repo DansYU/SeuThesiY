@@ -1,0 +1,33 @@
+\documentclass[algorithmlist, figurelist,tablelist, nomlist,phd]{config/seuthesiY}
+
+%===============================================================================
+% 采用的编译方式为  XELATEX -→  BIBER -→    XELATEX -→    XELATEX
+% 为了加快字体的缓存效率 需要在命令行运行 fc-cache
+% 对于学位论文需要标注【硕博】
+%===============================================================================
+
+% %biblatex宏包的参考文献数据源加载方式
+\addbibresource[location=local]{config/example.bib}
+
+\begin{document}
+\input{chapter/abstract.tex}
+
+\mainmatter
+
+\input{chapter/Intro.tex}
+
+%打印参考文献表
+\thesisbib
+
+\appendix
+
+
+\resume{作者攻读博士学位期间的研究成果}
+\begin{flushleft}
+    {\bfseries \large 发表的论文}\\ \relax
+    [1] 第一作者，“灵犀一指：理论与应用”, 武侠学报，
+    2015年5月。\\
+\end{flushleft}
+
+
+\end{document}
