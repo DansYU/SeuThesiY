@@ -3,6 +3,7 @@
 %%  This file provides a LaTeX document class for typesetting thesis of Southeast University, Nanjing, China.
 %%  Copyright (c) 2007--2012 Xu Yuan, email: xuyuan.cn@gmail.com
 %%  Copyright (c) 2016 James Fan, email: zhimengfan1990@163.com
+%%  Copyright (c) 2019 Deans Yu
 %%  License: GNU General Public License, version 3
 %% This file is part of ``seuthesix'' package.
 %% ``seuthesix'' is free software: you can redistribute it and/or modify
