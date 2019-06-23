@@ -40,6 +40,7 @@
 
 ## 编译方式
 采用的编译方式为  **XELATEX -→  BIBER -→    XELATEX -→    XELATEX**
+
 若使用vscode作为LaTeX编译器，可以使用.vscode/setting里面的配置文件
 
 
