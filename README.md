@@ -36,6 +36,15 @@
     location = {南京},
 }
 ```
+* 封皮夹缝中文标题带英文
+> 夹缝标题中文标题有英文需要对英文进行旋转，使用 *\rotatebox{270}* ，**注意** ' \rotatebox{270}{GNSS} ' 前后要加空格
+```tex
+\title{灵犀一指GNSS心法}{灵犀一指 \rotatebox{270}{GNSS} 心法}{灵犀一指}{灵犀一指}{The theory of powerful fingers}{powerful fingers}
+```
+> 封皮夹缝中文标题仅有中问不需旋转
+```tex
+\title{灵犀一指心法}{灵犀一指心法}{灵犀一指}{灵犀一指}{The theory of powerful fingers}{powerful fingers}
+```
 
 
 ## 编译方式
