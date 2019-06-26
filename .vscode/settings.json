@@ -30,7 +30,18 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "%DOC%"
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeindex",
+            "command": "makeindex",
+            "args": [
+                "%DOCFILE%.nlo",
+                "-s",
+                "nomencl.ist",
+                "-o",
+                "%DOCFILE%.nls"
             ]
         },
         {
@@ -52,6 +63,16 @@
         {
             "name": "xelatex",
             "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xe->mkind->bib->xe*2",
+            "tools": [
+                "xelatex",
+                "makeindex",
+                "biber",
+                "xelatex",
                 "xelatex"
             ]
         },
