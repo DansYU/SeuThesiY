@@ -1,7 +1,6 @@
 ## SeuThesiY
 
-**SeuThesiY** 提供了一个用于排版东南大学硕博学位论文的LaTeX模板。该模板主要是在[seuthesix](https://github.com/zhimengfan1990/seuthesix)基础修改了参考文献排版，采用了[biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)替代[seuthesix](https://github.com/zhimengfan1990/seuthesix)提供的参考文献格式。
-
+**SeuThesiY** 提供了一个用于排版东南大学硕博学位论文的LaTeX模板。该模板主要是在[seuthesix](https://github.com/zhimengfan1990/seuthesix)基础上进行的修改。
 
 目前该模板支持博士、硕士学位论文。
 
@@ -9,7 +8,10 @@
 ## 功能特色
 > 该模板除了参考文献其他功能特色均与[seuthesix](https://github.com/zhimengfan1990/seuthesix)相一致
 
-* 参考文献采用SEU特有的GBT7714-2015格式
+* **SeuThesiY**类继承自`ctexbook`
+
+* 参考文献采用SEU特有的GBT7714-2015格式[biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)替代[seuthesix](https://github.com/zhimengfan1990/seuthesix)提供的参考文献格式。
+
 > 主要是硕博参考文献的形式, 需要在bib文件中加上type域，如：type={[博士学位论文]}
 
 > 博士学位论文：周义炎. GPS 电离层反演与地震—电离层效应研究[D]. [博士学位论文]. 武汉: 武汉大学, 2015.
@@ -48,9 +50,20 @@
 
 
 ## 编译方式
-采用的编译方式为  **XELATEX -→  MAKEINDEX -→  BIBER -→    XELATEX -→    XELATEX**
+采用的编译方式为  **XELATEX →  MAKEINDEX →  BIBER →    XELATEX →    XELATEX**
 
 若使用vscode作为LaTeX编译器，可以使用.vscode/setting里面的配置文件
+
+> **本项目推荐配置：**
+>>| LaTeX 发行版 |TeX Live 2018+|
+>>| :---: | :---: |
+>>| **编辑器** |**VS code** |
+>>| **编辑器插件** | **LaTeX Workshop**|
+>>| **PDF阅读器** |**SumatraPDF** |
+> 具体安装配置请参考[使用VSCode编写LaTeX](https://zhuanlan.zhihu.com/p/38178015)
+
+
+**注意：** 采用TeXstudio时需要提前声明项目的根目录(TeX root)
 
 
 
