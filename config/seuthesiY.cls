@@ -20,7 +20,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{seuthesiY}[2019/06/28 2.0.0 The LaTeX template for academic  degree thesis of Southeast University]
-\typeout{Document Class `seuthesiY' 2.0.0 by Deans Yu (2019/06/28). Document Class `seuthesiY' 1.0.2 by Deans Yu (2019/06/23). Document Class `seuthesix' 1.0.1 by James Fan (2016/03/20)}
+\typeout{Document Class `seuthesiY' 3.0.0 by Deans Yu (2019/10/06). Document Class `seuthesiY' 2.0.0 by Deans Yu (2019/06/28). Document Class `seuthesix' 1.0.1 by James Fan (2016/03/20)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
 \newif\ifcoadvisor\coadvisorfalse
@@ -31,7 +31,7 @@
 \newif\iffigurelist\figurelistfalse
 \newif\iftablelist\tablelistfalse
 \newif\ifnomlist\nomlistfalse
-\InputIfFileExists{seuthesix.cfg}
+\InputIfFileExists{config/seuthesix.cfg}
 {\typeout{[seuthesix]: Load seuthesix.cfg successfully!}}%
     {\typeout{[seuthesix]: Load seuthesix.cfg failed!}}%
 \DeclareOption{nocolorlinks}{\nocolorlinkstrue}
@@ -48,6 +48,38 @@
 \LoadClass[twoside,a4paper,zihao=-4,UTF8,openright]{ctexbook}
 \RequirePackage[titles]{tocloft}
 \renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
+
+
+
+%===============================================================================
+%================================= 中英文字体===================================
+% 修改中文字体族，增加黑体
+\setCJKmainfont[
+Path = ./config/font/,
+BoldFont=simhei.ttf,
+ItalicFont=simkai.ttf,
+BoldItalicFont=simfang.ttf
+]{simsun.ttf}
+\setCJKfamilyfont{zhsong}[Path = ./config/font/]{simsun.ttf}
+\renewcommand{\songti}{\CJKfamily{zhsong}}
+\setCJKfamilyfont{zhhei}[Path = ./config/font/]{simhei.ttf}
+\renewcommand{\heiti}{\CJKfamily{zhhei}}
+\setCJKfamilyfont{zhkai}[Path = ./config/font/]{simkai.ttf}
+\newcommand{\kaiti}{\CJKfamily{zhkai}}
+\setCJKfamilyfont{zhfs}[Path = ./config/font/]{simfang.ttf}
+\newcommand{\fs}{\CJKfamily{zhfs}}
+
+% my change, 英文字体使用 Times New Roman
+\setmainfont[
+Path = ./config/font/,
+BoldFont=timesbd.ttf,
+ItalicFont=timesi.ttf,
+BoldItalicFont=timesbi.ttf
+]{times.ttf}
+
+% \setCJKmainfont{SimSun}[ItalicFont = KaiTi, AutoFakeBold = true]
+% \setmainfont[Mapping=tex-text]{Times New Roman}
+
 \newcommand{\chuhao}{\fontsize{42bp}{46bp}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36bp}{40bp}\selectfont}
 \newcommand{\yichu}{\fontsize{32bp}{36bp}\selectfont}
@@ -62,7 +94,9 @@
 \newcommand{\liuhao}{\fontsize{7.5bp}{9bp}\selectfont}
 \newcommand{\xiaoliuhao}{\fontsize{6.5bp}{7.5bp}\selectfont}
 \newcommand{\qihao}{\fontsize{5.5bp}{6.5bp}\selectfont}
-\setCJKmainfont{SimSun}
+%===============================================================================
+
+
 \ctexset{%
     chapter/format=\centering,
     chapter/nameformat=\large\heiti,
@@ -80,7 +114,6 @@
 }
 \RequirePackage[font=small]{caption}
 %\RequirePackage{mathptmx}
-\setmainfont[Mapping=tex-text]{Times New Roman}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
@@ -109,10 +142,10 @@
 \renewcommand{\listalgorithmname}{算法目录}
 % \RequirePackage[super,square]{natbib}
 %================================================
-\RequirePackage[backend=biber,bibstyle=config/gb7714-2015,citestyle=config/gb7714-2015,gbfieldtype=true,url=false,gbpunctin=false,
+\RequirePackage[backend=biber,bibstyle=config/gb7714-2015,citestyle=config/gb7714-2015,gbfieldtype=true,url=false,doi=false,gbpunctin=false,
 gbpub=false,gbnamefmt=lowercase,gbbiblabel=dot,]{biblatex}
 %================================================
-\newcommand\citen[1]{[\!\!\citenum{#1}]}
+% \newcommand\citen[1]{[\!\!\citenum{#1}]}
 \RequirePackage{hyperref}
 \ifnocolorlinks
     \hypersetup{colorlinks=false}
