@@ -6,7 +6,6 @@
 
 
 ## 功能特色
-> 该模板除了参考文献其他功能特色均与[seuthesix](https://github.com/zhimengfan1990/seuthesix)相一致
 
 * **SeuThesiY**类继承自`ctexbook`
 
@@ -47,6 +46,7 @@
 ```tex
 \title{灵犀一指心法}{灵犀一指心法}{灵犀一指}{灵犀一指}{The theory of powerful fingers}{powerful fingers}
 ```
+> 该模板除了以上功能其他功能特色均与[seuthesix](https://github.com/zhimengfan1990/seuthesix)相一致
 
 
 ## 编译方式
