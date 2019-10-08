@@ -77,6 +77,16 @@
             ]
         },
         {
+            "name": "pdf->mkind->bib->pdf*2",
+            "tools": [
+                "pdflatex",
+                "makeindex",
+                "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
             "name": "xe->bib->xe->xe",
             "tools": [
                 "xelatex",
@@ -103,21 +113,18 @@
     ],
     "latex-workshop.view.pdf.viewer": "external",
 
-    "latex-workshop.view.pdf.external.command": {                // **********
-        "command": "F:/Program Files/SumatraPDF/SumatraPDF.exe", // 注意修改路径
-        "args": [                                                // **********
-            "%PDF%"
-        ]
-    },
-    
-    "latex-workshop.view.pdf.external.synctex": {                // **********
-        "command": "F:/Program Files/SumatraPDF/SumatraPDF.exe", // 注意修改路径
-        "args": [                                                // **********
-            "-forward-search",
-            "%TEX%",
-            "%LINE%",
-            "%PDF%"
-        ]
-    },
     "files.autoGuessEncoding": true,
+    "workbench.colorTheme": "Quiet Light",
+    "latex-workshop.view.pdf.external.viewer.command": "F:/Program Files/SumatraPDF/SumatraPDF.exe", // 注意修改路径
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "F:/Program Files/SumatraPDF/SumatraPDF.exe", // 注意修改路径
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-forward-search",
+        "%LINE%",
+        "%PDF%",
+        "%TEX%"
+    ],
+    "latex-workshop.latex.recipe.default": "lastUsed",
 }
