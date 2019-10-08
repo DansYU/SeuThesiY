@@ -112,9 +112,6 @@
         }
     ],
     "latex-workshop.view.pdf.viewer": "external",
-
-    "files.autoGuessEncoding": true,
-    "workbench.colorTheme": "Quiet Light",
     "latex-workshop.view.pdf.external.viewer.command": "F:/Program Files/SumatraPDF/SumatraPDF.exe", // 注意修改路径
     "latex-workshop.view.pdf.external.viewer.args": [
         "%PDF%"
@@ -122,9 +119,14 @@
     "latex-workshop.view.pdf.external.synctex.command": "F:/Program Files/SumatraPDF/SumatraPDF.exe", // 注意修改路径
     "latex-workshop.view.pdf.external.synctex.args": [
         "-forward-search",
+        "%TEX%",
         "%LINE%",
+        "-reuse-instance",
+        "-inverse-search",
+        "code \"C:\\Program Files\\Microsoft VS Code\\resources\\app\\out\\cli.js\" -r -g \"%f:%l\"", // 注意修改路径
         "%PDF%",
-        "%TEX%"
     ],
     "latex-workshop.latex.recipe.default": "lastUsed",
+    "files.autoGuessEncoding": true,
+    "workbench.colorTheme": "Quiet Light",
 }
