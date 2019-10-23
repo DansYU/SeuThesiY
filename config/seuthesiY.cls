@@ -19,7 +19,7 @@
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seuthesiY}[2019/06/28 2.0.0 The LaTeX template for academic  degree thesis of Southeast University]
+\ProvidesClass{seuthesiY}[2019/10/06 3.0.0 The LaTeX template for academic  degree thesis of Southeast University]
 \typeout{Document Class `seuthesiY' 3.0.0 by Deans Yu (2019/10/06). Document Class `seuthesiY' 2.0.0 by Deans Yu (2019/06/28). Document Class `seuthesix' 1.0.1 by James Fan (2016/03/20)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
