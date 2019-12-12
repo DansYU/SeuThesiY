@@ -723,7 +723,7 @@ gbpub=false,gbnamefmt=lowercase,gbbiblabel=dot,]{biblatex}
         \cleardoublepage
         \phantomsection
         \addcontentsline{toc}{chapter}{\nomname}
-        \pagestyle{seustyle}
+        \pagestyle{nom}
         \printnomenclature[1in]
     \fi
 
