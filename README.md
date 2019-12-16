@@ -2,7 +2,7 @@
 
 ## SeuThesiY
 
-![Version](https://img.shields.io/badge/%20Version-3.0.0-green?style=for-the-badge&logo=appveyor) ![GitHub](https://img.shields.io/github/license/DansYU/SeuThesiY?style=for-the-badge&logo=appveyor) ![GitHub stars](https://img.shields.io/github/stars/DansYU/SeuThesiY?style=for-the-badge&logo=appveyor)
+![Version](https://img.shields.io/badge/%20Version-3.0.2-green?style=for-the-badge&logo=appveyor) ![GitHub](https://img.shields.io/github/license/DansYU/SeuThesiY?style=for-the-badge&logo=appveyor) ![GitHub stars](https://img.shields.io/github/stars/DansYU/SeuThesiY?style=for-the-badge&logo=appveyor)
 
 **SeuThesiY** 提供了一个用于排版东南大学硕博学位论文的LaTeX模板。该模板主要是在[seuthesix](https://github.com/zhimengfan1990/seuthesix)基础上进行的修改。
 

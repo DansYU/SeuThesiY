@@ -144,6 +144,7 @@ BoldItalicFont=timesbi.ttf
 %================================================
 \RequirePackage[backend=biber,bibstyle=config/gb7714-2015,citestyle=config/gb7714-2015,gbfieldtype=true,url=false,doi=false,gbpunctin=false,
 gbpub=false,gbnamefmt=lowercase,gbbiblabel=dot,]{biblatex}
+\AtBeginBibliography{\small}
 %================================================
 % \newcommand\citen[1]{[\!\!\citenum{#1}]}
 \RequirePackage{hyperref}
