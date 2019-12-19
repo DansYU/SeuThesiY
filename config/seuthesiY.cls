@@ -19,8 +19,8 @@
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seuthesiY}[2019/10/06 3.0.0 The LaTeX template for academic  degree thesis of Southeast University]
-\typeout{Document Class `seuthesiY' 3.0.0 by Deans Yu (2019/10/06). Document Class `seuthesiY' 2.0.0 by Deans Yu (2019/06/28). Document Class `seuthesix' 1.0.1 by James Fan (2016/03/20)}
+\ProvidesClass{seuthesiY}[2019/12/19 3.1.0 The LaTeX template for academic  degree thesis of Southeast University]
+\typeout{Document Class `seuthesiY' 3.1.0 by Deans Yu (2019/12/06). Document Class `seuthesiY' 1.0.2 by Deans Yu (2019/06/23). Document Class `seuthesix' 1.0.1 by James Fan (2016/03/20)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
 \newif\ifcoadvisor\coadvisorfalse
@@ -94,7 +94,12 @@ BoldItalicFont=timesbi.ttf
 \newcommand{\liuhao}{\fontsize{7.5bp}{9bp}\selectfont}
 \newcommand{\xiaoliuhao}{\fontsize{6.5bp}{7.5bp}\selectfont}
 \newcommand{\qihao}{\fontsize{5.5bp}{6.5bp}\selectfont}
-%===============================================================================
+
+
+
+
+
+
 
 
 \ctexset{%
@@ -142,8 +147,9 @@ BoldItalicFont=timesbi.ttf
 \renewcommand{\listalgorithmname}{算法目录}
 % \RequirePackage[super,square]{natbib}
 %================================================
-\RequirePackage[backend=biber,bibstyle=config/gb7714-2015,citestyle=config/gb7714-2015,gbfieldtype=true,url=false,doi=false,gbpunctin=false,
-gbpub=false,gbnamefmt=lowercase,gbbiblabel=dot,]{biblatex}
+% \RequirePackage[backend=biber,bibstyle=config/gb7714-2015,citestyle=config/gb7714-2015,gbfieldtype=true,doi=false,gbpunctin=false,
+% gbpub=false,gbnamefmt=lowercase,gbbiblabel=dot]{biblatex}
+\usepackage[backend=biber,style=config/gb7714-2015,gbalign=config/gb7714-2015,url=false,doi=false,gbnamefmt=lowercase,gbpub=false,gbfieldtype=true,gbpunctin=false,gbpub=false]{biblatex}
 \AtBeginBibliography{\small}
 %================================================
 % \newcommand\citen[1]{[\!\!\citenum{#1}]}
@@ -171,7 +177,7 @@ gbpub=false,gbnamefmt=lowercase,gbbiblabel=dot,]{biblatex}
     \end{picture}
 }
 
-\RequirePackage[top=1.2in,bottom=1in,left=2.5cm,right=2.5cm,a4paper]{geometry}
+\RequirePackage[top=2cm,bottom=2cm,left=2cm,right=2cm,a4paper]{geometry}
 \RequirePackage{fancyhdr}
 \fancypagestyle{seustyle}{%
     \fancyhf{}
