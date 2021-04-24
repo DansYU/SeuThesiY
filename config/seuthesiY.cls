@@ -68,6 +68,8 @@ BoldItalicFont=simfang.ttf
 \newcommand{\kaiti}{\CJKfamily{zhkai}}
 \setCJKfamilyfont{zhfs}[Path = ./config/font/]{simfang.ttf}
 \newcommand{\fs}{\CJKfamily{zhfs}}
+\setCJKfamilyfont{zhzs}[Path = ./config/font/]{simzs.ttf}
+\newcommand{\zhongsong}{\CJKfamily{zhzs}}
 
 % my change, 英文字体使用 Times New Roman
 \setmainfont[
@@ -141,7 +143,8 @@ BoldItalicFont=timesbi.ttf
 \newcommand{\setnomname}[1]{\renewcommand\nomname{#1}}
 \renewcommand{\nomname}{术语与数学符号约定}
 \RequirePackage{algorithm}
-\RequirePackage{algorithmic}
+% \RequirePackage{algorithmic}
+\RequirePackage{algpseudocode}
 \numberwithin{algorithm}{chapter}
 \floatname{algorithm}{算法}
 \renewcommand{\listalgorithmname}{算法目录}
@@ -245,6 +248,8 @@ BoldItalicFont=timesbi.ttf
 \newcommand{\UDC}[1]{\renewcommand{\@UDC}{#1}}
 \newcommand{\@studentid}{}
 \newcommand{\studentid}[1]{\renewcommand{\@studentid}{#1}}
+\newcommand{\@thesisform}{}
+\newcommand{\thesisform}[1]{\renewcommand{\@thesisform}{#1}}
 \newcommand\degreetype[2]{\renewcommand\@degreetype{#1}%
 \renewcommand\@degreetypeen{#2}}
 \newcommand{\@majorlen}{8em}
@@ -386,54 +391,80 @@ BoldItalicFont=timesbi.ttf
         \begin{center}
             \linespread{1.25}
             \yihao\heiti\@title\\
-            \yihao\heiti\@subtitle
+            \yihao\heiti\@subtitle\\
+            \ifengineering
+                {\sanhao\zhongsong\ (\sanhao\zhongsong\thesisformpre } 
+                {\sanhao\zhongsong\@thesisform)}
+            \else
+                \vspace*{0.5\baselineskip}
+            \fi
         \end{center}
     \end{minipage}
+    
+    \ifengineering
+        \vspace*{1\baselineskip}
+    \else
+    \fi
 
     \hspace*{20.5cm}
     \begin{minipage}{16cm}
         \begin{center}
             \setlength{\tabcolsep}{0pt}
-            \renewcommand{\arraystretch}{2.0}
+            \renewcommand{\arraystretch}{1.7}
             \begin{tabular}{cr}
-                \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
+                \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre\textbf{:} } &
                 \underline{\makebox[6cm][s]{
                     \hspace*{1cm}
-                    \makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
+                    \makebox[2.5cm][c]{\xiaoerhao\heiti\textbf{\@author}}
                     \makebox[2cm][r]{}}} \\
-                \makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
+                \makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre\textbf{:} } &
                 \underline{\makebox[6cm][s]{
                     \hspace*{1cm}
-                    \makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
-                    \makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}}}
+                    \makebox[2.5cm][c]{\xiaoerhao\heiti\textbf{\@advisorname}}
+                    \makebox[2cm][r]{\xiaoerhao\heiti\textbf{\@advisortitle}}}}
                 \\
                 &
                 \ifcoadvisor
                     \underline{\makebox[6cm][s]{
                         \hspace*{1cm}
-                        \makebox[2.5cm][c]{\xiaoerhao\heiti\@coadvisorname}
-                        \makebox[2cm][r]{\xiaoerhao\heiti\@coadvisortitle}}}
+                        \makebox[2.5cm][c]{\xiaoerhao\heiti\textbf{\@coadvisorname}}
+                        \makebox[2cm][r]{\xiaoerhao\heiti\textbf{\@coadvisortitle}}}}
                 \else
                 \fi \\
             \end{tabular}
         \end{center}
     \end{minipage}
     
+    \ifengineering
+        \vspace*{0.5\baselineskip}
+    \else
+    \fi
+
     \hspace*{20.5cm}
     \begin{minipage}{16cm}
         \begin{center}
         \setlength{\tabcolsep}{10pt}
-        \renewcommand{\arraystretch}{2.0}
+        \renewcommand{\arraystretch}{1.7}
             \begin{tabular}{ll}
-                \CoverBottomOption{\appdegreepre}{\@degreetype} &
-                \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
-                \CoverBottomOption{\majorpre}{\@major} &
-                \CoverBottomOption{\defenddatepre}{\@defenddate}\\
-                \CoverBottomOption{\submajorpre}{\@submajor} &
-                \CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
-                \CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
-                \CoverBottomOption{\reviewerpre}{\@reviewerA}\\
-                & \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
+                \CoverBottomOption{\appdegreepre}{\textbf{\@degreetype}} &
+                \CoverBottomOption{\authorizeorganizationpre}{\textbf{\@authorizeorganization}} \\
+                \ifengineering
+                    \CoverBottomOption{\fieldpre}{\textbf{\@major}}
+                \else
+                    \CoverBottomOption{\majorpre}{\textbf{\@major}} 
+                \fi
+                &
+                \CoverBottomOption{\defenddatepre}{\textbf{\@defenddate}}\\
+                \ifengineering
+                    \CoverBottomOption{\directionpre}{\textbf{\@submajor}}
+                \else
+                    \CoverBottomOption{\submajorpre}{\textbf{\@submajor}} 
+                \fi
+                &
+                \CoverBottomOption{\authorizedatepre}{\textbf{\@authorizedate}}\\
+                \CoverBottomOption[4.05cm]{\committeechairpre}{\textbf{\@committeechair}} &
+                \CoverBottomOption{\reviewerpre}{\textbf{\@reviewerA}}\\
+                & \CoverBottomOption{\makebox[2.55cm]{}}{\textbf{\@reviewerB}}
             \end{tabular}
         \end{center}
     \end{minipage}
@@ -477,10 +508,10 @@ BoldItalicFont=timesbi.ttf
     }
 
     \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,23){%
-    \parbox{\paperwidth}{\centering\includegraphics[width=\paperwidth]{figures/front-cover.jpg}}}}%
+    \parbox{\paperwidth}{\centering\includegraphics[width=0.8\paperwidth]{figures/front-cover.jpg}}}}%
 
     \ifengineering
-        \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18){ %
+        \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,17.5){ %
         \parbox{\paperwidth}{\centering\includegraphics[scale=0.65]{figures/engineering.png}}}}%
     \else \ifmasters
         \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18){ %
@@ -497,38 +528,43 @@ BoldItalicFont=timesbi.ttf
     \fi
 
 
-    \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(17,27){%
-    \parbox{\paperwidth}{\includegraphics[width=2cm]{figures/seu-color-logo.png}}}}%
+    % \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(17,27){%
+    % \parbox{\paperwidth}{\includegraphics[width=2cm]{figures/seu-color-logo.png}}}}%
 
-    \vspace*{8cm}
+    \vspace*{10cm}
 
     \begin{center}
         \linespread{1.25}
         \yihao\heiti\@title\\
-        \yihao\heiti\@subtitle
+        \yihao\heiti\@subtitle\\
+        \ifengineering
+            {\sanhao\zhongsong\ (\sanhao\zhongsong\thesisformpre } 
+            {\sanhao\zhongsong\@thesisform)}
+        \else
+        \fi
     \end{center}
 
     \begin{center}
         \setlength{\tabcolsep}{0pt}
-        \renewcommand{\arraystretch}{2.0}
+        \renewcommand{\arraystretch}{1.7}
         \begin{tabular}{cr}
-            \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
+            \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre\textbf{:} } &
             \underline{\makebox[6cm][s]{
                 \hspace*{1cm}
-                \makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
+                \makebox[2.5cm][c]{\xiaoerhao\heiti\textbf{\@author}}
                 \makebox[2cm][r]{}}} \\
-            \makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
+            \makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre\textbf{:} } &
             \underline{\makebox[6cm][s]{
                 \hspace*{1cm}
-                \makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
-                \makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}}}
+                \makebox[2.5cm][c]{\xiaoerhao\heiti\textbf{\@advisorname}}
+                \makebox[2cm][r]{\xiaoerhao\heiti\textbf{\@advisortitle}}}}
             \\
             &
             \ifcoadvisor
                 \underline{\makebox[6cm][s]{
                     \hspace*{1cm}
-                    \makebox[2.5cm][c]{\xiaoerhao\heiti\@coadvisorname}
-                    \makebox[2cm][r]{\xiaoerhao\heiti\@coadvisortitle}}}
+                    \makebox[2.5cm][c]{\xiaoerhao\heiti\textbf{\@coadvisorname}}
+                    \makebox[2cm][r]{\xiaoerhao\heiti\textbf{\@coadvisortitle}}}}
             \else
             \fi \\
         \end{tabular}
@@ -536,17 +572,27 @@ BoldItalicFont=timesbi.ttf
 
     \begin{center}
         \setlength{\tabcolsep}{10pt}
-        \renewcommand{\arraystretch}{2.0}
+        \renewcommand{\arraystretch}{1.7}
         \begin{tabular}{ll}
-            \CoverBottomOption{\appdegreepre}{\@degreetype} &
-            \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
-            \CoverBottomOption{\majorpre}{\@major} &
-            \CoverBottomOption{\defenddatepre}{\@defenddate}\\
-            \CoverBottomOption{\submajorpre}{\@submajor} &
-            \CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
-            \CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
-            \CoverBottomOption{\reviewerpre}{\@reviewerA}\\
-            & \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
+            \CoverBottomOption{\appdegreepre}{\textbf{\@degreetype}} &
+            \CoverBottomOption{\authorizeorganizationpre}{\textbf{\@authorizeorganization}} \\
+            \ifengineering
+                \CoverBottomOption{\fieldpre}{\textbf{\@major}}
+            \else
+                \CoverBottomOption{\majorpre}{\textbf{\@major}} 
+            \fi
+            &
+            \CoverBottomOption{\defenddatepre}{\textbf{\@defenddate}}\\
+            \ifengineering
+                \CoverBottomOption{\directionpre}{\textbf{\@submajor}}
+            \else
+                \CoverBottomOption{\submajorpre}{\textbf{\@submajor}} 
+            \fi
+            &
+            \CoverBottomOption{\authorizedatepre}{\textbf{\@authorizedate}}\\
+            \CoverBottomOption[4.05cm]{\committeechairpre}{\textbf{\@committeechair}} &
+            \CoverBottomOption{\reviewerpre}{\textbf{\@reviewerA} \quad \textbf{\@reviewerB}}\\
+            % & \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
         \end{tabular}
     \end{center}
 
@@ -562,10 +608,14 @@ BoldItalicFont=timesbi.ttf
 
         \includegraphics[height=0.63in]{figures/seu-text-logo}
 
-        \ifmasters
+        \ifengineering
+            \vspace*{0.5\baselineskip}
+            \includegraphics[width=0.75\textwidth]{figures/engineering.png}
+        \else \ifmasters
             \includegraphics{figures/master-hwzs}
         \else
             \includegraphics{figures/doctor-hwzs}
+        \fi
         \fi
 
         \vspace{31.5pt}
@@ -576,15 +626,15 @@ BoldItalicFont=timesbi.ttf
         {
             \setlength{\tabcolsep}{0pt}
             \begin{tabular}{cc}
-                \makebox[3.5cm][s]{\xiaoerhao\heiti{}专~~业~~名~~称: } &
+                \makebox[3.5cm][s]{\xiaoerhao\heiti{}专~~业~~名~~称\textbf{:} } &
                 \underline{\makebox[6cm][s]{
-                    \xiaoerhao\songti\textbf{\@major} }} \\
+                    \xiaoerhao\heiti\textbf{\@major} }} \\
                 \\
-                \makebox[3.5cm][s]{ \xiaoerhao\heiti\authorpre:  } &
+                \makebox[3.5cm][s]{ \xiaoerhao\heiti\authorpre\textbf{:}  } &
                 \underline{\makebox[6cm][s]{
                 \xiaoerhao\songti\textbf{\@author} }} \\
                 \\
-                \makebox[3.5cm][s]{ \xiaoerhao\heiti\advisorpre:  } &
+                \makebox[3.5cm][s]{ \xiaoerhao\heiti\advisorpre\textbf{:}  } &
                 \underline{\makebox[6cm][s]{
                     \xiaoerhao\songti\textbf{\@advisorname\quad\@advisortitle}}}
                 \\
@@ -622,7 +672,11 @@ BoldItalicFont=timesbi.ttf
             \fi
             submitted to}\\
             {\universitynameeng}\\
-            {For the Academic Degree of \@degreetypeen}\\
+            \ifengineering
+                {For the Professional Degree of \@degreetypeen}\\
+            \else
+                {For the Academic Degree of \@degreetypeen}\\
+            \fi
             {\vspace{0.5in}}%
             {BY}\\
             {\@authoreng}\\
