@@ -6,7 +6,7 @@
 
 **SeuThesiY** 提供了一个用于排版东南大学硕博学位论文的LaTeX模板。该模板主要是在[seuthesix](https://github.com/zhimengfan1990/seuthesix)基础上进行的修改。
 
-目前该模板支持博士、硕士学位论文。
+目前该模板支持博士、学术型硕士、专业型硕士学位论文。
 
 
 ## 功能特色
