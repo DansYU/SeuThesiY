@@ -39,7 +39,7 @@
 \DeclareOption{phd}{\phdtrue\mastersfalse\engineeringfalse\renewcommand\@degreelevel{博士}}
 \DeclareOption{masters}{\masterstrue\engineeringfalse\phdfalse\renewcommand\@degreelevel{硕士}}
 \DeclareOption{engineering}{%
-\engineeringtrue\masterstrue\phdfalse\renewcommand\@degreelevel{工程硕士}}
+\engineeringtrue\masterstrue\phdfalse\renewcommand\@degreelevel{电子信息硕士}}
 \DeclareOption{figurelist}{\figurelisttrue}
 \DeclareOption{tablelist}{\tablelisttrue}
 \DeclareOption{nomlist}{\nomlisttrue}
@@ -336,8 +336,8 @@ BoldItalicFont=timesbi.ttf
 
     \ifengineering
         \begin{picture}(0,0)
-            \put(23.2,-7.5){ %
-            \includegraphics[scale=0.65]{figures/engineering.png}}
+            \put(22,-7.4){ %
+            \includegraphics[scale=0.4]{figures/electronic_engineering.png}}
         \end{picture}
     \else \ifmasters
         \begin{picture}(0,0)
@@ -511,8 +511,8 @@ BoldItalicFont=timesbi.ttf
     \parbox{\paperwidth}{\centering\includegraphics[width=0.8\paperwidth]{figures/front-cover.jpg}}}}%
 
     \ifengineering
-        \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,17.5){ %
-        \parbox{\paperwidth}{\centering\includegraphics[scale=0.65]{figures/engineering.png}}}}%
+        \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18.5){ %
+        \parbox{\paperwidth}{\centering\includegraphics[scale=0.4]{figures/electronic_engineering.png}}}}%
     \else \ifmasters
         \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18){ %
         \parbox{\paperwidth}{\centering\includegraphics[scale=1.1]{figures/master-hwzs.pdf}}}}%
@@ -610,7 +610,7 @@ BoldItalicFont=timesbi.ttf
 
         \ifengineering
             \vspace*{0.5\baselineskip}
-            \includegraphics[width=0.75\textwidth]{figures/engineering.png}
+            \includegraphics[width=0.75\textwidth]{figures/electronic_engineering.png}
         \else \ifmasters
             \includegraphics{figures/master-hwzs}
         \else
