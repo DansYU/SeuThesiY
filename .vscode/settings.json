@@ -128,5 +128,5 @@
     ],
     "latex-workshop.latex.recipe.default": "lastUsed",
     "files.autoGuessEncoding": true,
-    "workbench.colorTheme": "Quiet Light",
+    // "workbench.colorTheme": "Quiet Light",
 }
